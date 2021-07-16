@@ -150,8 +150,8 @@ run_flakeNIX <- function(sim_folder, nml_file = 'flake.nml', verbose=FALSE){
 
   origin <- getwd()
   setwd(sim_folder)
-  Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixflake',
-                                         'FLakeR'))
+  # Sys.setenv(LD_LIBRARY_PATH=system.file('extbin/nixflake',
+                                         # 'FLakeR'))
   tryCatch({
     if (verbose){
       out <- system2(flake_path, wait = TRUE, stdout = TRUE,
