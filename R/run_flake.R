@@ -145,6 +145,9 @@ run_flakeOSx <- function(sim_folder, nml_file = 'flake.nml', verbose=FALSE){
 }
 
 run_flakeNIX <- function(sim_folder, nml_file = 'flake.nml', verbose=FALSE){
+
+  flake_path <- system.file('extbin/nixflake', package='FLakeR')
+
   if(nchar(Sys.getenv("FLAKE_PATH")) > 0){
     flake_path <- Sys.getenv("FLAKE_PATH")
     warning(paste0(
@@ -153,6 +156,7 @@ run_flakeNIX <- function(sim_folder, nml_file = 'flake.nml', verbose=FALSE){
   }else{
     flake_path <- system.file('extbin/nixflake', package='FLakeR')
   }
+
 
 
 
