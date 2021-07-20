@@ -145,7 +145,15 @@ run_flakeOSx <- function(sim_folder, nml_file = 'flake.nml', verbose=FALSE){
 }
 
 run_flakeNIX <- function(sim_folder, nml_file = 'flake.nml', verbose=FALSE){
-  flake_path <- system.file('extbin/nixflake', package='FLakeR')
+  if(nchar(Sys.getenv("FLAKE_PATH")) > 0){
+    flake_path <- Sys.getenv("FLAKE_PATH")
+    warning(paste0(
+      "Custom path to FLake executable set via 'FLAKE_PATH' environment variable as: ",
+      simstrat_path))
+  }else{
+    flake_path <- system.file('extbin/nixflake', package='FLakeR')
+  }
+
 
 
   origin <- getwd()
